@@ -23,12 +23,21 @@ namespace calculator
 
         private void button_Click(object sender, EventArgs e)
         {
-            if (textBox_result.Text== "0")
+            if (textBox_result.Text== "0"||(isoperationperformed))
             {
                 textBox_result.Clear();
             }
             isoperationperformed = false;
             Button button = (Button)sender;
+            if(textBox_result.Text==".")
+            {
+                if (!textBox_result.Text.Contains("."))
+                    textBox_result.Text = textBox_result + button.Text;
+                
+
+            }
+            else
+                textBox_result.Text = textBox_result + button.Text;
             textBox_result.Text = textBox_result.Text + button.Text;
         }
 
@@ -37,6 +46,7 @@ namespace calculator
             Button button = (Button)sender;
             operationperformed = button.Text;
             resultevalue = double.Parse(textBox_result.Text);
+            labelcurrentoperation.Text = resultevalue + " "+ operationperformed  ;
             isoperationperformed = true;
             
         }
