@@ -14,6 +14,7 @@ namespace calculator
     {
         double resultevalue = 0;
         string operationperformed = "";
+        bool isoperationperformed = false;
         public Form1()
         {
            
@@ -26,6 +27,7 @@ namespace calculator
             {
                 textBox_result.Clear();
             }
+            isoperationperformed = false;
             Button button = (Button)sender;
             textBox_result.Text = textBox_result.Text + button.Text;
         }
@@ -35,6 +37,7 @@ namespace calculator
             Button button = (Button)sender;
             operationperformed = button.Text;
             resultevalue = double.Parse(textBox_result.Text);
+            isoperationperformed = true;
             
         }
 
@@ -58,13 +61,13 @@ namespace calculator
                     textBox_result.Text = (resultevalue + double.Parse(textBox_result.Text)).ToString();
                     break;
                 case "-":
-                    textBox_result.Text = (resultevalue + double.Parse(textBox_result.Text)).ToString();
+                    textBox_result.Text = (resultevalue- double.Parse(textBox_result.Text)).ToString();
                     break;
                 case "*":
-                    textBox_result.Text = (resultevalue + double.Parse(textBox_result.Text)).ToString();
+                    textBox_result.Text = (resultevalue * double.Parse(textBox_result.Text)).ToString();
                     break;
                 case "/":
-                    textBox_result.Text = (resultevalue + double.Parse(textBox_result.Text)).ToString();
+                    textBox_result.Text = (resultevalue / double.Parse(textBox_result.Text)).ToString();
                     break;
             }
         }
