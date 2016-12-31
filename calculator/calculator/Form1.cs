@@ -29,7 +29,7 @@ namespace calculator
             }
             isoperationperformed = false;
             Button button = (Button)sender;
-            if(textBox_result.Text==".")
+            if(button.Text==".")
             {
                 if (!textBox_result.Text.Contains("."))
                     textBox_result.Text = textBox_result + button.Text;
@@ -38,7 +38,7 @@ namespace calculator
             }
             else
                 textBox_result.Text = textBox_result + button.Text;
-            textBox_result.Text = textBox_result.Text + button.Text;
+           
         }
 
         private void operator_click(object sender, EventArgs e)
